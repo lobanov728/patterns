@@ -18,6 +18,6 @@ func (obj *FirstDisplay) Update(subject interfaces.Subject) {
 		obj.Temperature = weatherData.Value1
 	}
 }
-func (obj FirstDisplay) Display() {
-	fmt.Println("Temperature", obj.Temperature)
+func (obj FirstDisplay) Display() string {
+	return fmt.Sprintf("Temperature %6.2f", obj.Temperature)
 }

@@ -19,6 +19,6 @@ func (obj *ThirdDisplay) Update(subject interfaces.Subject) {
 		obj.Velocity = weatherData.Value3 * 3
 	}
 }
-func (obj ThirdDisplay) Display() {
-	fmt.Println("Velocity", obj.Velocity)
+func (obj ThirdDisplay) Display() string {
+	return fmt.Sprintf("Velocity %6.2f", obj.Velocity)
 }

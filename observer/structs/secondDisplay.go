@@ -18,6 +18,6 @@ func (obj *SecondDisplay) Update(subject interfaces.Subject) {
 		obj.Humidity = weatherData.Value2
 	}
 }
-func (obj SecondDisplay) Display() {
-	fmt.Println("Humidity", obj.Humidity)
+func (obj SecondDisplay) Display() string {
+	return fmt.Sprintf("Humidity %6.2f", obj.Humidity)
 }
