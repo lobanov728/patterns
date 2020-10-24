@@ -17,3 +17,15 @@ func (sauce MartinaraSauce) isSauce() {
 
 }
 
+type PlumTomatoSauce struct {
+
+}
+
+func (p PlumTomatoSauce) isSauce() {
+}
+
+func (p PlumTomatoSauce) GetName() string {
+	return "Сливочно томатный соус"
+}
+
+

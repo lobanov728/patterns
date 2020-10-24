@@ -10,9 +10,20 @@ type FreshClams struct {
 }
 
 func (clams FreshClams) GetName() string {
-	return "Fresh clams"
+	return "Свежие креветки"
 }
 
 func (clams FreshClams) isClams()  {
 
+}
+
+type FrozenClams struct {
+
+}
+
+func (f FrozenClams) isClams() {
+}
+
+func (f FrozenClams) GetName() string {
+	return "Замороженные креветки"
 }

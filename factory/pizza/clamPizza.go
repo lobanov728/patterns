@@ -5,23 +5,24 @@ import (
 	"patterns/factory/ingredients"
 )
 
-type CheesePizza struct {
+type ClamPizza struct {
 	IngredientsFactory ingredients.PizzaIngredientsFactory
 	basePizza BasePizza
 }
 
-func NewCheesePizza(IngredientsFactory ingredients.PizzaIngredientsFactory) Pizza {
-	pizza := new(CheesePizza)
+func NewClamPizza(IngredientsFactory ingredients.PizzaIngredientsFactory) Pizza {
+	pizza := new(ClamPizza)
 	pizza.basePizza = *new(BasePizza)
 	pizza.IngredientsFactory = IngredientsFactory
 
 	return pizza
 }
 
-func (c *CheesePizza) Prepare() string {
+func (c *ClamPizza) Prepare() string {
 	c.basePizza.dough = c.IngredientsFactory.CreateDough()
 	c.basePizza.cheese = c.IngredientsFactory.CreateCheese()
 	c.basePizza.sauce = c.IngredientsFactory.CreateSauce()
+	c.basePizza.clams = c.IngredientsFactory.CreateClams()
 	return fmt.Sprintf(
 		"%s. %s",
 		c.GetName(),
@@ -29,30 +30,31 @@ func (c *CheesePizza) Prepare() string {
 	)
 }
 
-func (c CheesePizza) Bake() string {
+func (c ClamPizza) Bake() string {
 	return c.basePizza.Bake()
 }
 
-func (c CheesePizza) Cut() string {
+func (c ClamPizza) Cut() string {
 	return c.basePizza.Cut()
 }
 
-func (c CheesePizza) Box() string {
+func (c ClamPizza) Box() string {
 	return c.basePizza.Box()
 }
 
-func (c *CheesePizza) SetName(name string) {
+func (c *ClamPizza) SetName(name string) {
 	c.basePizza.SetName(name)
 }
 
-func (c *CheesePizza) GetName() string {
+func (c *ClamPizza) GetName() string {
 	return c.basePizza.GetName()
 }
 
-func (c CheesePizza) ToString() string {
-	return fmt.Sprintf("%s, %s, %s",
+func (c ClamPizza) ToString() string {
+	return fmt.Sprintf("%s, %s, %s, %s",
 		ingredients.GetIngredientName(c.basePizza.dough),
 		ingredients.GetIngredientName(c.basePizza.cheese),
 		ingredients.GetIngredientName(c.basePizza.sauce),
+		ingredients.GetIngredientName(c.basePizza.clams),
 	)
 }

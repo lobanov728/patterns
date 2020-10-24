@@ -16,3 +16,15 @@ func (dough ThinCrustDough) GetName() string {
 func (dough ThinCrustDough) isDough() {
 
 }
+
+type ThickDough struct {
+
+}
+
+func (dough ThickDough) GetName() string {
+	return "Толстая основа"
+}
+
+func (dough ThickDough) isDough() {
+
+}
